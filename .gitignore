@@ -1,0 +1,6 @@
+.idea/*
+*.sqlite
+target
+out
+*log*.txt
+*.iml

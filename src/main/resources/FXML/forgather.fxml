@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.forgather.gatherController">
+   <children>
+      <TabPane fx:id="tabPane" layoutX="100.0" layoutY="126.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab id="about" fx:id="aboutTab" closable="false" onSelectionChanged="#tabManager" text="About">
+            <content>
+                  <SplitPane dividerPositions="0.2833333333333333" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                        <Accordion prefHeight="371.0" prefWidth="166.0">
+                          <panes>
+                            <TitledPane animated="false" text="Help">
+                              <content>
+                                    <ListView prefHeight="200.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Forgather Settings">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <CheckBox layoutX="16.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="139.0" snapToPixel="false" text="Store Images Locally" />
+                                          <Button layoutX="14.0" layoutY="257.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Save Changes" />
+                                          <CheckBox layoutX="16.0" layoutY="53.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="133.0" snapToPixel="false" text="Turn Off Debug Log" />
+                                          <ColorPicker layoutX="15.0" layoutY="213.0" prefHeight="23.0" prefWidth="140.0" />
+                                          <Label layoutX="14.0" layoutY="190.0" prefHeight="17.0" prefWidth="158.0" text="Background (coming soon)" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Export/Import">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="146.0" text="Import Database" />
+                                          <Button layoutX="12.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Export Database" />
+                                          <CheckBox layoutX="12.0" layoutY="61.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="138.0" text="Card Data Only" />
+                                          <CheckBox layoutX="13.0" layoutY="102.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="136.0" text="Export As CSV" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="426.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="8.0" prefHeight="41.0" prefWidth="386.0" text="About Forgather TC">
+                                 <font>
+                                    <Font name="Calibri Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <DialogPane contentText="Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the conditions found in the LICENSE file." expanded="true" headerText="Copyright (c) 2017 Tristan Schott" layoutX="5.0" layoutY="45.0" prefHeight="350.0" prefWidth="412.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#tabManager" text="Add Cards">
+              <content>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="cardList" layoutX="246.0" layoutY="13.0" prefHeight="345.0" prefWidth="342.0" />
+                        <TextField fx:id="nameAC" layoutX="10.0" layoutY="30.0" prefHeight="28.0" prefWidth="225.0" promptText="Card Name" />
+                        <TextField fx:id="setAC" layoutX="9.0" layoutY="75.0" prefHeight="29.0" prefWidth="226.0" promptText="Set" />
+                        <TextField fx:id="costAC" layoutX="185.0" layoutY="290.0" prefHeight="25.0" prefWidth="49.0" promptText="CMC" />
+                        <TextField fx:id="colorsAC" layoutX="11.0" layoutY="208.0" prefHeight="25.0" prefWidth="223.0" promptText="Color Identities" />
+                        <TextField fx:id="typeAC" layoutX="9.0" layoutY="121.0" prefHeight="29.0" prefWidth="226.0" promptText="Type" />
+                        <TextField fx:id="pwrAC" layoutX="14.0" layoutY="290.0" prefHeight="25.0" prefWidth="51.0" promptText="PWR" />
+                        <TextField fx:id="tghAC" layoutX="76.0" layoutY="290.0" prefHeight="25.0" prefWidth="47.0" promptText="TGH" />
+                        <TextField fx:id="loyaltyAC" layoutX="133.0" layoutY="290.0" prefHeight="25.0" prefWidth="42.0" promptText="Loyal" />
+                        <TextField fx:id="superAC" layoutX="10.0" layoutY="165.0" prefHeight="28.0" prefWidth="99.0" promptText="Supertypes" />
+                        <TextField fx:id="subAC" layoutX="123.0" layoutY="165.0" prefHeight="28.0" prefWidth="111.0" promptText="Subtypes" />
+                        <Button fx:id="addSearch" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onAction="#cAddSearch" prefHeight="26.0" prefWidth="98.0" text="Search" />
+                        <TextField fx:id="rarityAC" layoutX="11.0" layoutY="249.0" prefHeight="25.0" prefWidth="224.0" promptText="Rarity" />
+                        <Label fx:id="ACLabel" layoutX="13.0" layoutY="6.0" prefHeight="17.0" prefWidth="222.0" text="Search for Cards" />
+                        <Button fx:id="ACButton" layoutX="120.0" layoutY="331.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#cAdd" prefHeight="27.0" prefWidth="116.0" text="Add Selected" textAlignment="CENTER" textOverrun="CLIP" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab closable="false" onSelectionChanged="#tabManager" text="View Collection">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <SplitPane dividerPositions="0.5244565217391305" layoutX="5.0" layoutY="6.0" prefHeight="360.0" prefWidth="371.0">
+                           <items>
+                              <ListView fx:id="listMC" prefHeight="307.0" prefWidth="177.0" />
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="307.0" prefWidth="225.0">
+                                 <children>
+                                    <TextField fx:id="nameMC" layoutX="11.0" layoutY="14.0" prefHeight="28.0" prefWidth="152.0" promptText="Name" />
+                                    <TextField fx:id="setMC" layoutX="12.0" layoutY="54.0" prefHeight="26.0" prefWidth="42.0" promptText="Set" />
+                                    <TextField fx:id="colorsMC" layoutX="12.0" layoutY="94.0" promptText="Colors" />
+                                    <TextField fx:id="layoutMC" layoutX="12.0" layoutY="245.0" promptText="Layout" />
+                                    <TextField fx:id="typeMC" layoutX="63.0" layoutY="53.0" prefHeight="27.0" prefWidth="97.0" promptText="Type" />
+                                    <TextField fx:id="pwrMC" layoutX="12.0" layoutY="167.0" prefHeight="25.0" prefWidth="69.0" promptText="PWR" />
+                                    <TextField fx:id="tghMC" layoutX="93.0" layoutY="167.0" prefHeight="25.0" prefWidth="67.0" promptText="TGH" />
+                                    <TextField fx:id="loyaltyMC" layoutX="12.0" layoutY="208.0" prefHeight="25.0" prefWidth="69.0" promptText="Loyalty" />
+                                    <Button fx:id="searchMC" layoutX="11.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#searchMyCards" prefHeight="25.0" prefWidth="52.0" text="Search" />
+                                    <TextField fx:id="cmcMC" layoutX="94.0" layoutY="208.0" prefHeight="25.0" prefWidth="68.0" promptText="CMC" />
+                                    <Button fx:id="removeMC" layoutX="103.0" layoutY="281.0" mnemonicParsing="false" onMouseClicked="#removeCard" prefHeight="25.0" prefWidth="60.0" text="Remove" />
+                                    <TextField fx:id="subMC" layoutX="12.0" layoutY="129.0" prefHeight="25.0" prefWidth="69.0" promptText="Subtype" />
+                                    <TextField fx:id="superMC" layoutX="93.0" layoutY="129.0" prefHeight="25.0" prefWidth="68.0" promptText="Supertype" />
+                                    <Button fx:id="viewMC" layoutX="9.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#viewMyCard" prefHeight="25.0" prefWidth="155.0" text="View" />
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="deckTab" onSelectionChanged="#tabManager" text="Deck Manager">
+              <content>
+                  <TitledPane animated="false" collapsible="false" prefHeight="381.0" prefWidth="600.0" text="Deck Manager">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="deckName" layoutX="150.0" layoutY="14.0" promptText="Deck Name" />
+                              <MenuButton layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="MenuButton">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                                  <MenuItem mnemonicParsing="false" text="Action 2" />
+                                </items>
+                              </MenuButton>
+                              <HBox layoutX="14.0" layoutY="39.0" prefHeight="100.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
